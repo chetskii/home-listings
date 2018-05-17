@@ -9,7 +9,18 @@ $form.on('submit', function(evt) {
     let addressValue = $address.val();
     let bathroomValue = $bathrooms.val();
     let bedroomValue = $bedrooms.val();
-    console.log(addressValue)
-    console.log(bathroomValue)
-    console.log(bedroomValue)
+
+
+    $homes.append(
+        `<li style="display:none">Address: ${addressValue} Bedrooms: ${bedroomValue} Bathrooms: ${bathroomValue}</li>`
+    )
+
+    $('li').last().fadeIn(2000)
+    
+})
+
+$homes.on('click', 'li', function() {
+    $(this).fadeOut(3000, function() {
+        $(this).remove()
+    })
 })
